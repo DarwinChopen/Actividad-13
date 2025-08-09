@@ -22,7 +22,8 @@ class Mensajeria:
         iguales = [x for x in lista if x == pivote]
         mayores = [x for x in lista[1:] if x > pivote]
 
-        return self.quick_sort(menores) + iguales + self.quick_sort(mayores)
+        return self.quick_sort(mayores) + iguales + self.quick_sort(menores)
+
 
 empresa=Mensajeria()
 while True:
@@ -58,10 +59,13 @@ while True:
                     print(var)
         case 3:
             print("Ordenarlos por paquetes")
-            listaOrdenadaPaqutetes=[var.paquetes for var in empresa.repartidores.values() ]
-            paquetes_ordenados = empresa.quick_sort(listaOrdenadaPaqutetes)
-
-
+            listaTemporal = [(var.paquetes, var.nombre, var.zona) for var in empresa.repartidores.values()]
+            paquetesOrdenados = empresa.quick_sort(listaTemporal)
+            for paquetes,nombre,zona in paquetesOrdenados:
+                    print(f"Nombre: {nombre}")
+                    print(f"Paquetes: {paquetes}")
+                    print(f"Zona: {zona}")
+                    print("_________________________")
         case 4:
             print("Buscar")
         case 5:
