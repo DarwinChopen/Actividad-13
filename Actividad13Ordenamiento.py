@@ -85,6 +85,12 @@ while True:
                 print("no se encontro a nadie.")
         case 5:
             print("Estadisticas")
+            totalPauetes=sum(var.paquetes for var in empresa.repartidores.values())
+            print(f"El total de Paquetes entregados es de:{totalPauetes} ")
+
+            promedioPaquetes=totalPauetes/len(empresa.repartidores)
+            print(f"El promedio de paquetes entregados es de: {promedioPaquetes}")
+
         case 6:
             print("Salir")
             break
