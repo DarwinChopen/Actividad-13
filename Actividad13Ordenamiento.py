@@ -13,7 +13,7 @@ class Mensajeria:
     def agregarRepartidores(self,repartidor):
         self.repartidores[repartidor.nombre]=repartidor
 
-    def quick_sort(lista):
+    def quick_sort(self,lista):
         if len(lista) <= 1:
             return lista
 
@@ -22,7 +22,7 @@ class Mensajeria:
         iguales = [x for x in lista if x == pivote]
         mayores = [x for x in lista[1:] if x > pivote]
 
-        return quick_sort(menores) + iguales + quick_sort(mayores)
+        return self.quick_sort(menores) + iguales + self.quick_sort(mayores)
 
 empresa=Mensajeria()
 while True:
@@ -54,10 +54,14 @@ while True:
                 print("No hay repartidores registrados.")
             else:
                 print("Lisatodo original")
-                for r in empresa.repartidores.values():
-                    print(r)
+                for var in empresa.repartidores.values():
+                    print(var)
         case 3:
-            print("Ordenarlos")
+            print("Ordenarlos por paquetes")
+            listaOrdenadaPaqutetes=[var.paquetes for var in empresa.repartidores.values() ]
+            paquetes_ordenados = empresa.quick_sort(listaOrdenadaPaqutetes)
+
+
         case 4:
             print("Buscar")
         case 5:
