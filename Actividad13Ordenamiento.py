@@ -24,6 +24,12 @@ class Mensajeria:
 
         return self.quick_sort(mayores) + iguales + self.quick_sort(menores)
 
+    def buscar(self,nombreObjetivo):
+        for datos in self.repartidores.values():
+            if datos.nombre==nombreObjetivo:
+                return datos
+        return  None
+
 
 empresa=Mensajeria()
 while True:
@@ -68,6 +74,15 @@ while True:
                     print("_________________________")
         case 4:
             print("Buscar")
+            nombreBbuscar = input("Ingrese el nombre del repartidor: ").strip()
+            resultado = empresa.buscar(nombreBbuscar)
+            if resultado:
+                print(f"Nombre: {resultado.nombre}")
+                print(f"Paquetes: {resultado.paquetes}")
+                print(f"Zona: {resultado.zona}")
+                print("_________________________")
+            else:
+                print("no se encontro a nadie.")
         case 5:
             print("Estadisticas")
         case 6:
